@@ -9,6 +9,7 @@
 
 class Property:
     ## ====================
+    ## Data
     '''
     numofRooms
     numofBathrooms
