@@ -3,13 +3,14 @@
 ## ===============================
 ## imports
 import unittest
+import sys 
 from app.property import Property
 
 ## ====================
 ## functions
 
 ## Object -> None
-## display the properties characteristic
+## display the property characteristic
 
 def display(obj): # stub
     print(" ")

@@ -7,24 +7,6 @@
 ## ===============================
 ## Classes
 
-class Property:
-    ## ====================
-    ## Data
-    '''
-    numofRooms
-    numofBathrooms
-    squareFootage
-    '''
-    ## ====================
-    ## functions
-    def __init__(self):
-        pass
-
-    def display(self):
-        pass
-
-    def prompinit():
-        pass     
 
 class House(Property):
     ## ====================
