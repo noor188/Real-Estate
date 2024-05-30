@@ -9,9 +9,9 @@ class Property:
     ## ====================
     ## Data
     '''
-    numofBedrooms
-    numofBathrooms
     squareFootage
+    numofBedrooms
+    numofBathrooms    
     '''
     ## ====================
     ## functions
