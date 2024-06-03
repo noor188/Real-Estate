@@ -56,6 +56,11 @@ class testinitMethod(unittest.TestCase):
         self.assertEqual(property.numofBedrooms,  0) 
         self.assertEqual(property.numofBathrooms, 1) 
 
+    #5 Test case for out of limit values    ValueError
+    def test_boolean_values(self):
+        with self.assertRaises(ValueError):
+            Property(245.5, 100, 0)
+
 ## <template for Data.py>
 
 class Property: # stub
@@ -83,7 +88,7 @@ class Property: # stub
         try:
             if isinstance(numofBedrooms, str) or isinstance(numofBedrooms, bool) or isinstance(numofBedrooms, float): # string or boolean
                 raise TypeError
-            if numofBedrooms < 0 : # neg
+            if numofBedrooms < 0 or 10 < numofBedrooms: # neg, out of bound
                 raise ValueError    
         except TypeError: # loggin the error, notifying the user, reverting to a defult value or other appropriate actions 
             raise TypeError
@@ -97,7 +102,7 @@ class Property: # stub
         try:
             if isinstance(numofBathrooms, str) or isinstance(numofBathrooms, bool) or isinstance(numofBathrooms, float): # string or boolean
                 raise TypeError
-            if numofBathrooms < 0 : # neg
+            if numofBathrooms < 1 or 10 < numofBathrooms: # neg or out of bound
                 raise ValueError    
         except TypeError: # loggin the error, notifying the user, reverting to a defult value or other appropriate actions 
             raise TypeError
@@ -105,25 +110,34 @@ class Property: # stub
             raise ValueError 
         else:
             self.numofBathrooms = numofBathrooms
+    
+    def display(self): # stub
+        print(" ")
 
 ## ====================
 
-## Object -> None
-## display the property characteristic
-
-def display(obj): # stub
-    print(" ")
+## Object -> String
+## Display the property characteristic (squareFootage, numofBedrooms, numofBathrooms)
     
-""" class testDisplayMethod(unittest.TestCase):
 
-    # 1
-    def test_display(self):
-        p1 = Property(200.0, 3, 2)
-        result = display(Property)
-        self.assertEqual(result, (print("## ====================\n"), print(" Square Footage: ", p1.squareFootage, end="\n"), print("Num of Bedrooms: ", p1.numofBedrooms, end="\n"), print("Num of Bathrooms: ", p1.numofBathrooms, end="\n") ))
- """
+class testDisplayMethod(unittest.TestCase):
+
+    #1 
+    def test_case_one(self):
+        p1 = Property(245.5, 3, 2)
+        self.assertEqual(p1.display(), "## ======== ## \n Properties Characterisitcs: \n Square Footage: {} \n Num of bedrooms: {} \n Num of bathrooms: {}".format(p1.squareFootage, p1.numofBedrooms, p1.numofBathrooms))
+
+    #2
+    def test_case_two(self):
+        p1 = Property(601.9, 4, 3)
+        self.assertEqual(p1.display(), "## ======== ## \n Properties Characterisitcs: \n Square Footage: {} \n Num of bedrooms: {} \n Num of bathrooms: {}".format(p1.squareFootage, p1.numofBedrooms, p1.numofBathrooms))
+
 if __name__ == "__main__":
-    unittest.main()
+    # unittest.main()
+    suite = unittest.TestSuite()
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(testDisplayMethod))
+    unittest.TextTestRunner().run(suite)
+
 
 
 

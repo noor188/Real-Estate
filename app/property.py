@@ -40,7 +40,7 @@ class Property:
             try:
                 if isinstance(numofBedrooms, str) or isinstance(numofBedrooms, bool) or isinstance(numofBedrooms, float): # string or boolean
                     raise TypeError
-                if numofBedrooms < 0 : # neg
+                if numofBedrooms < 0 or  : # neg
                     raise ValueError    
             except TypeError: # loggin the error, notifying the user, reverting to a defult value or other appropriate actions 
                 raise TypeError
@@ -54,7 +54,7 @@ class Property:
             try:
                 if isinstance(numofBathrooms, str) or isinstance(numofBathrooms, bool) or isinstance(numofBathrooms, float): # string or boolean
                     raise TypeError
-                if numofBathrooms < 0 : # neg
+                if numofBathrooms < 1 or numofBathrooms > 10  : # neg and 0 
                     raise ValueError    
             except TypeError: # loggin the error, notifying the user, reverting to a defult value or other appropriate actions 
                 raise TypeError
