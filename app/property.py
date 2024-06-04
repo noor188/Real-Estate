@@ -71,10 +71,14 @@ class Property:
 
         def get_numofBathrooms(self):
             return self.numofBathrooms
-    """
+        
     def display(self) -> None:
-        ''' display the property data values'''       
-        pass """
+        ## ... self
+        print("## ======== ##")
+        print("Properties Characterisitcs:")
+        print("Square Footage: {}".format(self.squareFootage) )
+        print("Num of bedrooms: {}".format(self.numofBedrooms))
+        print("Num of bathrooms: {}".format(self.numofBathrooms))
 
     def prompinit():
         pass    
