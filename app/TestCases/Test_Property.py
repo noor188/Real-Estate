@@ -1,22 +1,17 @@
-## Design and test property methods
-
 ## ===============================
 ## imports
 import unittest
 import sys 
+from io import StringIO
 #from app.property import Property
+
+## Design and test property methods
 
 ## ====================
 ## functions
 
 ## Object squareFootage numofBedrooms numofBathrooms -> None
 ## Initializes an object instance of the Property class
-""" 
-class Property: # stub
-    def __init__(self, squareFootage: float, numofBedrooms: int = 0, numofBathrooms: int= 1) -> None:
-        self.squareFootage  = 0
-        self.numofBedrooms  = 0
-        self.numofBathrooms = 1 """
 
 class testinitMethod(unittest.TestCase):
 
@@ -111,8 +106,14 @@ class Property: # stub
         else:
             self.numofBathrooms = numofBathrooms
     
-    def display(self): # stub
-        print(" ")
+    def display(self) -> None:
+        ## ... self
+        print("## ======== ##")
+        print("Properties Characterisitcs:")
+        print("Square Footage: {}".format(self.squareFootage) )
+        print("Num of bedrooms: {}".format(self.numofBedrooms))
+        print("Num of bathrooms: {}".format(self.numofBathrooms))  
+       
 
 ## ====================
 
@@ -121,21 +122,34 @@ class Property: # stub
     
 
 class testDisplayMethod(unittest.TestCase):
-
+    
     #1 
     def test_case_one(self):
         p1 = Property(245.5, 3, 2)
-        self.assertEqual(p1.display(), "## ======== ## \n Properties Characterisitcs: \n Square Footage: {} \n Num of bedrooms: {} \n Num of bathrooms: {}".format(p1.squareFootage, p1.numofBedrooms, p1.numofBathrooms))
+        captrued_output = StringIO()
+        sys.stdout      = captrued_output
+        p1.display()
+        sys.stdout = sys.__stdout__
+        captured_output_value = captrued_output.getvalue()
+        self.assertEqual(captured_output_value, "## ======== ##\nProperties Characterisitcs:\nSquare Footage: {}\nNum of bedrooms: {}\nNum of bathrooms: {}\n".format(p1.squareFootage, p1.numofBedrooms, p1.numofBathrooms))
 
     #2
     def test_case_two(self):
         p1 = Property(601.9, 4, 3)
-        self.assertEqual(p1.display(), "## ======== ## \n Properties Characterisitcs: \n Square Footage: {} \n Num of bedrooms: {} \n Num of bathrooms: {}".format(p1.squareFootage, p1.numofBedrooms, p1.numofBathrooms))
+        captrued_output = StringIO()
+        sys.stdout      = captrued_output
+        p1.display()
+        sys.stdout = sys.__stdout__
+        captured_output_value = captrued_output.getvalue()
+        self.assertEqual(captured_output_value, "## ======== ##\nProperties Characterisitcs:\nSquare Footage: {}\nNum of bedrooms: {}\nNum of bathrooms: {}\n".format(p1.squareFootage, p1.numofBedrooms, p1.numofBathrooms))
 
 if __name__ == "__main__":
     # unittest.main()
     suite = unittest.TestSuite()
-    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(testDisplayMethod))
+    # test __init__ 
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(testinitMethod))
+    # test display method
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(testDisplayMethod))
     unittest.TextTestRunner().run(suite)
 
 
