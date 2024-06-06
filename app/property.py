@@ -1,84 +1,41 @@
 ## ===============================
 ## imports
-
+from app.Data_Definitions.Data import SquareFootage, NumofBedrooms, NumofBathrooms
 
 ## ===============================
 ## Classes
+    
+class Property: 
+        ## ====================
+        ## Data/ Attributes
+        '''
+        squareFootage
+        numofBedrooms
+        numofBathrooms    
+        '''        
+        def __init__(self, squarefootage= 0, numofBedrooms= 0, numofBathrooms= 1) -> None:
+            self.squarefootage  = SquareFootage(squarefootage)
+            self.numofBedrooms  = NumofBedrooms(numofBedrooms)   
+            self.numofBathrooms = NumofBathrooms(numofBathrooms)
 
-class Property:
-    ## ====================
-    ## Data
-    '''
-    squareFootage
-    numofBedrooms
-    numofBathrooms    
-    '''
-    ## ====================
-    ## functions
-    class Property: # stub
-        def __init__(self, squareFootage: float = 0, numofBedrooms: int = 0, numofBathrooms: int= 1) -> None:
-            self.set_squareFootage (squareFootage)
-            self.set_numofBedrooms (numofBedrooms)        
-            self.set_numofBathrooms(numofBathrooms)      
+        ## ====================
+        ## functions                 
 
-        def set_squareFootage(self, squareFootage):
-            
-            try:
-                if isinstance(squareFootage, str) or isinstance(squareFootage, bool): # string or boolean
-                    raise TypeError
-                if squareFootage < 0 : # neg
-                    raise ValueError    
-            except TypeError: # loggin the error, notifying the user, reverting to a defult value or other appropriate actions 
-                raise TypeError
-            except ValueError:
-                raise ValueError 
-            else:
-                self.squareFootage = squareFootage
-        
-        def set_numofBedrooms(self, numofBedrooms):
-            
-            try:
-                if isinstance(numofBedrooms, str) or isinstance(numofBedrooms, bool) or isinstance(numofBedrooms, float): # string or boolean
-                    raise TypeError
-                if numofBedrooms < 0 or numofBedrooms > 10 : # neg
-                    raise ValueError    
-            except TypeError: # loggin the error, notifying the user, reverting to a defult value or other appropriate actions 
-                raise TypeError
-            except ValueError:
-                raise ValueError 
-            else:
-                self.numofBedrooms = numofBedrooms
-        
-        def set_numofBathrooms(self, numofBathrooms):
-            
-            try:
-                if isinstance(numofBathrooms, str) or isinstance(numofBathrooms, bool) or isinstance(numofBathrooms, float): # string or boolean
-                    raise TypeError
-                if numofBathrooms < 1 or numofBathrooms > 10  : # neg and 0 
-                    raise ValueError    
-            except TypeError: # loggin the error, notifying the user, reverting to a defult value or other appropriate actions 
-                raise TypeError
-            except ValueError:
-                raise ValueError 
-            else:
-                self.numofBathrooms = numofBathrooms
-        
         def get_squareFootage(self):
-            return self.squareFootage
+            return self.squarefootage.value
 
         def get_numofBedrooms(self):
-            return self.numofBedrooms
+            return self.numofBedrooms.value
 
         def get_numofBathrooms(self):
-            return self.numofBathrooms
+            return self.numofBathrooms.value
         
-    def display(self) -> None:
-        ## ... self
-        print("## ======== ##")
-        print("Properties Characterisitcs:")
-        print("Square Footage: {}".format(self.squareFootage) )
-        print("Num of bedrooms: {}".format(self.numofBedrooms))
-        print("Num of bathrooms: {}".format(self.numofBathrooms))
+        def display(self) -> None:            
+            print("## ======== ##")
+            print("Properties Characterisitcs:")
+            print("Square Footage: {}".format(self.squareFootage) )
+            print("Num of bedrooms: {}".format(self.numofBedrooms))
+            print("Num of bathrooms: {}".format(self.numofBathrooms))
 
-    def prompinit():
-        pass    
+        def prompinit():
+            pass    
