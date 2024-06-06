@@ -13,22 +13,22 @@ class Property:
         numofBedrooms
         numofBathrooms    
         '''        
-        def __init__(self, squarefootage= 0, numofBedrooms= 0, numofBathrooms= 1) -> None:
-            self.squarefootage  = SquareFootage(squarefootage)
-            self.numofBedrooms  = NumofBedrooms(numofBedrooms)   
-            self.numofBathrooms = NumofBathrooms(numofBathrooms)
+        def __init__(self, squarefoot= 0, numofBed= 0, numofBath= 1) -> None:
+            self.squarefoot     = SquareFootage(squarefoot)
+            self.numofBed       = NumofBedrooms(numofBed)   
+            self.numofBath      = NumofBathrooms(numofBath)
 
         ## ====================
         ## functions                 
 
         def get_squareFootage(self):
-            return self.squarefootage.value
+            return self.squarefoot.value
 
         def get_numofBedrooms(self):
-            return self.numofBedrooms.value
+            return self.numofBed.value
 
         def get_numofBathrooms(self):
-            return self.numofBathrooms.value
+            return self.numofBath.value
         
         def display(self) -> None:            
             print("## ======== ##")
