@@ -16,11 +16,11 @@ class Property:
         def __init__(self, squarefootage= 0, numofBedrooms= 0, numofBathrooms= 1) -> None:
             self.squarefootage  = SquareFootage(squarefootage)
             self.numofBedrooms  = NumofBedrooms(numofBedrooms)   
-            self.numofBathrooms = NumofBathrooms(numofBathrooms)    
+            self.numofBathrooms = NumofBathrooms(numofBathrooms)
 
         ## ====================
-        ## functions 
-                
+        ## functions                 
+
         def get_squareFootage(self):
             return self.squarefootage.value
 
