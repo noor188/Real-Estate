@@ -3,6 +3,7 @@
 ## ====================
 
 ## squareFootage is float
+squareFootage = float
 ## interp. square footage of a property
 
 sf  = 245.4
@@ -17,6 +18,7 @@ def fn_for_squareFootage(squareFootage):
 ## ====================
 
 ## numofBedrooms is Integer[0,10]
+numofBedrooms = Integer[0,10]
 ## interp. The number of bedrooms in a property
 
 nb = 4

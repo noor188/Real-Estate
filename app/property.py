@@ -1,6 +1,6 @@
 ## ===============================
 ## imports
-
+from Data_Definitions.Data import squareFootage
 
 ## ===============================
 ## Classes
@@ -16,8 +16,8 @@ class Property:
     ## ====================
     ## functions
     class Property: # stub
-        def __init__(self, squareFootage: float = 0, numofBedrooms: int = 0, numofBathrooms: int= 1) -> None:
-            self.set_squareFootage (squareFootage)
+        def __init__(self, sqrfoot: squareFootage = 0, numofBedrooms: int = 0, numofBathrooms: int= 1) -> None:
+            self.set_squareFootage (sqrfoot)
             self.set_numofBedrooms (numofBedrooms)        
             self.set_numofBathrooms(numofBathrooms)      
 
