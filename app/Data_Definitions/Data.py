@@ -1,5 +1,5 @@
 ## ====================
-## Data
+## Data definitions for property class
 ## ====================
 
 
@@ -98,6 +98,26 @@ class NumofBathrooms:
             raise ValueError 
         else:
             self.value = numofBathrooms
+
+## ====================
+
+class CustomDict:
+    '''interp. the (key,val) pairs of a dict'''
+
+    def __init__(self):
+        pass
+    
+    @staticmethod
+    def prompt_dict(*keys: str) -> dict:
+        '''Accepts a variable number of string arguments (keys) and returns a dictionary.
+        The value for each key is obtained bt prompting the user for input'''
+        values = dict()
+        for key in keys:
+            values[key] = input('Enter {} value'.format(key))
+        
+        return values
+
+
 
 
 

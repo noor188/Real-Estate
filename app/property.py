@@ -1,6 +1,6 @@
 ## ===============================
 ## imports
-from app.Data_Definitions.Data import SquareFootage, NumofBedrooms, NumofBathrooms
+from app.Data_Definitions.Data import SquareFootage, NumofBedrooms, NumofBathrooms, CustomDict
 
 ## ===============================
 ## Classes
@@ -37,5 +37,11 @@ class Property:
             print("Num of bedrooms: {}".format(self.numofBedrooms))
             print("Num of bathrooms: {}".format(self.numofBathrooms))
 
-        def prompinit():
-            pass    
+        @staticmethod
+        def promptinit()-> dict:
+            '''Produce a dictionary of values that can be passed
+            into properties initializer'''
+            return CustomDict.prompt_dict('squarefootage', 'numofbedrooms','numofBathrooms')
+               
+        
+        

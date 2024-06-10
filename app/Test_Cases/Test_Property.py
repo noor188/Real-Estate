@@ -1,9 +1,11 @@
 ## ===============================
 ## imports
 import unittest
+from unittest.mock import patch
 import sys 
 from io import StringIO
 from app.property import Property
+from app.Data_Definitions.Data import CustomDict
 
 ## Design and test property methods
 
@@ -13,15 +15,15 @@ from app.property import Property
 ## Object squareFootage numofBedrooms numofBathrooms -> None
 ## Initializes an object instance of the Property class
 
-class testinitMethod(unittest.TestCase):
+class TestinitMethod(unittest.TestCase):
 
     #1 Test case for valid values 
     def test_valid_values(self):
         squarefootage, numofBedrooms, numofBathrooms = 245.7, 4, 3
         property = Property(squarefootage, numofBedrooms, numofBathrooms)  
-        self.assertEqual(property.squarefootage.value,  squarefootage ) 
-        self.assertEqual(property.numofBedrooms.value,  numofBedrooms ) 
-        self.assertEqual(property.numofBathrooms.value, numofBathrooms) 
+        self.assertEqual(property.squarefoot.value,  squarefootage ) 
+        self.assertEqual(property.numofBed.value,  numofBedrooms ) 
+        self.assertEqual(property.numofBath.value, numofBathrooms) 
 
     #2 Test case for negative values
     def test_negative_values(self):
@@ -47,9 +49,9 @@ class testinitMethod(unittest.TestCase):
     def test_missing_values(self):
         squareFootage= 245.7
         property = Property(squareFootage)  
-        self.assertEqual(property.squarefootage.value ,  squareFootage ) 
-        self.assertEqual(property.numofBedrooms.value ,  0) 
-        self.assertEqual(property.numofBathrooms.value, 1) 
+        self.assertEqual(property.squarefoot.value ,  squareFootage ) 
+        self.assertEqual(property.numofBed.value ,  0) 
+        self.assertEqual(property.numofBath.value, 1) 
 
     #5 Test case for out of limit values    ValueError
     def test_boolean_values(self):
@@ -62,7 +64,7 @@ class testinitMethod(unittest.TestCase):
 ## Display the property characteristic (squareFootage, numofBedrooms, numofBathrooms)
     
 
-class testDisplayMethod(unittest.TestCase):
+class TestDisplayMethod(unittest.TestCase):
     
     #1 
     def test_case_one(self):
@@ -84,13 +86,30 @@ class testDisplayMethod(unittest.TestCase):
         captured_output_value = captrued_output.getvalue()
         self.assertEqual(captured_output_value, "## ======== ##\nProperties Characterisitcs:\nSquare Footage: {}\nNum of bedrooms: {}\nNum of bathrooms: {}\n".format(p1.squareFootage, p1.numofBedrooms, p1.numofBathrooms))
 
+class TestCustomDictMethod(unittest.TestCase):
+
+    #1 test case for 3 input
+    @patch('builtins.input', side_effect=[245.7, 3, 4])
+    def test_case_one(self, mock_input): 
+        Test_Dict = CustomDict.prompt_dict('squarefoot', 'numofBeds', 'nomofBaths')  
+        expected = {'squarefoot': 245.7, 'numofBeds': 3, 'nomofBaths': 4 }      
+        self.assertEqual(Test_Dict, {'squarefoot': 245.7, 'numofBeds': 3, 'nomofBaths': 4 })
+    
+    #2 Test case for 0 input 
+    def test_case_two(self):
+        Test_Dict = CustomDict.prompt_dict()
+        self.assertEqual(Test_Dict, {})
+
+
 if __name__ == "__main__":
     # unittest.main()   
     suite = unittest.TestSuite()
     # test __init__ 
-    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(testinitMethod))
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestinitMethod))
     # test display method
-    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(testDisplayMethod))
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestDisplayMethod))
+    # test CustomDict method
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestCustomDictMethod))
     unittest.TextTestRunner().run(suite)
 
 
