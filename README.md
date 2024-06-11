@@ -11,5 +11,5 @@ Agent to the real estate application need to be able to:
 -------------------------------------------------------------------------------------------
 
 # Design
-![](https://github.com/noor188/Real-Estate/blob/main/img/UML%20diagrams.png)
+![](https://github.com/noor188/Real-Estate/blob/main/img/UML_%20diagrams.png)
    
