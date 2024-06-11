@@ -25,7 +25,7 @@ class Property:
             return self.squarefoot.value
 
         def get_numofBedrooms(self):
-            return self.numofBed.value
+            return self.numofBed.value 
 
         def get_numofBathrooms(self):
             return self.numofBath.value
@@ -38,7 +38,7 @@ class Property:
             print("Num of bathrooms: {}".format(self.numofBathrooms))
 
         @staticmethod
-        def promptinit()-> dict:
+        def prompt_init()-> dict:
             '''Produce a dictionary of values that can be passed
             into properties initializer'''
             return CustomDict.prompt_dict('squarefootage', 'numofbedrooms','numofBathrooms')
