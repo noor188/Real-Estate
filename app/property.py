@@ -1,47 +1,74 @@
-## ===============================
-## imports
-from app.Data_Definitions.Data import SquareFootage, NumofBedrooms, NumofBathrooms, CustomDict
+## Stores data for a property 
 
-## ===============================
-## Classes
+## =================
+## Constants:
+
+
+
+## =================
+## Data definitions
+
+class Propert:  
+    # store the next available id for all properties
+    Propert_ID = 0  
     
-class Property: 
-        ## ====================
-        ## Data/ Attributes
-        '''
-        squareFootage
-        numofBedrooms
-        numofBathrooms    
-        '''        
-        def __init__(self, squarefoot= 0, numofBed= 0, numofBath= 1) -> None:
-            self.squarefoot     = SquareFootage(squarefoot)
-            self.numofBed       = NumofBedrooms(numofBed)   
-            self.numofBath      = NumofBathrooms(numofBath)
+    def __init__(self, id, address, square_footage, num_of_bedrooms, num_of_bathrooms):
+        self.ID               = self.set_id(id)
+        self.ADDRESS          = self.set_address(address)
+        self.SQUARE_FOOTAGE   = self.set_square_footage(square_footage)
+        self.NUM_OF_BEDROOMS  = self.set_num_of_bedrooms(num_of_bedrooms)
+        self.NUM_OF_BATHROOMS = self.set_num_of_bathrooms(num_of_bathrooms)
+        self.Status           = 'Available' 
+    
+    def set_id(self, id):        
+        Propert.Propert_ID += 1
+    
+    def set_address(self, address):
+        pass
 
-        ## ====================
-        ## functions                 
+    def set_square_footage(self, square_footage):
+        pass
 
-        def get_squareFootage(self):
-            return self.squarefoot.value
+    def set_num_of_bedrooms(self, num_of_bedrooms):
+        pass
 
-        def get_numofBedrooms(self):
-            return self.numofBed.value 
+    def set_num_of_bathrooms(self, num_of_bathrooms):
+        pass
 
-        def get_numofBathrooms(self):
-            return self.numofBath.value
-        
-        def display(self) -> None:            
-            print("## ======== ##")
-            print("Properties Characterisitcs:")
-            print("Square Footage: {}".format(self.squareFootage) )
-            print("Num of bedrooms: {}".format(self.numofBedrooms))
-            print("Num of bathrooms: {}".format(self.numofBathrooms))
+    def set_status(self, status):
+        pass
 
-        @staticmethod
-        def prompt_init()-> dict:
-            '''Produce a dictionary of values that can be passed
-            into properties initializer'''
-            return CustomDict.prompt_dict('squarefootage', 'numofbedrooms','numofBathrooms')
-               
-        
-        
+    def get_id(self):
+        pass
+    
+    def get_address(self):
+        pass
+
+    def get_square_footage(self):
+        pass
+
+    def get_num_of_bedrooms(self):
+        pass
+
+    def get_num_of_bathrooms(self):
+        pass
+
+    def get_status(self):
+        pass
+
+    ## =================
+    ## Methods:
+    def mark_as_sold(self):
+        pass
+
+    def mark_as_rented(self):
+        pass
+
+    def display(self):
+        pass
+
+    @staticmethod
+    def prompt_init():
+        pass
+
+
