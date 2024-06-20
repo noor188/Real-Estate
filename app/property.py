@@ -8,7 +8,7 @@
 ## =================
 ## Data definitions
 
-class Propert:  
+class Property:  
     # store the next available id for all properties
     Propert_ID = 0  
     
