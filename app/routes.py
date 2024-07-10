@@ -6,4 +6,4 @@ from app import app
 def index():
     '''View function for the inde web page'''
     user = {'username': 'Noor'}
-    return render_template("index.html", title= "Microblog", user= user)
+    return render_template("index.html", title= " Welcome Microblog", user= user)
