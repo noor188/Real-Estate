@@ -5,5 +5,13 @@ from app import app
 @app.route("/index")
 def index():
     '''View function for the inde web page'''
-    user = {'username': 'Noor'}
-    return render_template("index.html", title= " Welcome Microblog", user= user)
+    user  = {'username': 'Noor'}
+    posts = [{
+                'author': {'username': 'Noor'},
+                'post'  : 'an apartment for sell'
+             },
+             {
+                'author': {'username': 'Sarah'},
+                'post'  : 'a house for sell'                 
+             }]
+    return render_template("index.html", title= " Welcome Microblog", user= user, posts=posts)
