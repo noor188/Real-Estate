@@ -12,6 +12,7 @@ class Property:
     Propert_ID = 0
     
     def __init__(self, address, square_footage, num_of_bedrooms, num_of_bathrooms):
+        self.id, self.address, self.square_footage, self.num_of_bedrooms, self.num_of_bathrooms = None*5
         self.set_id( )
         self.set_address(address)
         self.set_square_footage(square_footage)
@@ -25,18 +26,22 @@ class Property:
 
         Parameters: 
         None
-        ''' #TODO
+        '''
         Property.Propert_ID += 1
-        
+        self.id = Property.Propert_ID        
     
-    def set_address(self, address):
+    def set_address(self, address) -> None:
         '''
         assign the properties address
 
         Parameters:
         address (str) : The address of the property        
         ''' #TODO
-        pass
+        self.address = dict(street_number = input("Enter street number: "),
+                            street_name   = input("Enter street name: "),
+                            county        = input("Enter county: "),
+                            state         = input("Enter state: "),
+                            zip_code      = input("Enter zip code: "))
 
     def set_square_footage(self, square_footage):
         '''
