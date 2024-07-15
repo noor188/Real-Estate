@@ -12,6 +12,7 @@ from property import Property
 class House(Property):  
         
     def __init__(self, parking, private_pool, exterior_features):
+        self.parking, self.private_pool, exterior_features = None, None, None
         self.set_parking(parking)
         self.set_private_pool(private_pool)
         self.set_exterior_features(exterior_features)
