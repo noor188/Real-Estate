@@ -1,3 +1,5 @@
+#TODO 
+# handle exceptions
 from property import Property
 ## Allows an agent to manage properties  
 

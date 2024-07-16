@@ -1,0 +1,2 @@
+class InvalidStreetNumber(Exception):
+    pass
