@@ -1,11 +1,19 @@
-def validate_street_number(number: int) -> None:
+'''Validates the input values'''
+import error.exceptions
+
+## =================
+## Data definitions
+
+def validate_street_number(number: int) -> int:
     '''
     checks that the street number input is an int
 
     Parameters:
     number (int): the street number
-    ''' #TODO
-    pass
+    '''
+    if not isinstance(number, int):
+        raise exceptions.InvalidStreetNumber(number)
+    return number
 
 def validate_street_name(name: str) -> None:
     '''
