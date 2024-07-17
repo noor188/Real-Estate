@@ -1,5 +1,5 @@
 ''' Stores data for a property'''
-from error import validators
+from app.error import validators
 ## =================
 ## Constants:
 
@@ -13,13 +13,13 @@ class Property:
     Propert_ID = 0
     
     def __init__(self):
-        self.id, self.address, self.square_footage, self.num_of_bedrooms, self.num_of_bathrooms = None*5
+        self.id, self.address, self.square_footage, self.num_of_bedrooms, self.num_of_bathrooms = None, None, None, None, None
         self.set_id( )
         self.set_address()
-        self.set_square_footage()
-        self.set_num_of_bedrooms()
-        self.set_num_of_bathrooms()
-        self.status           = 'Available'
+        #self.set_square_footage()
+        #self.set_num_of_bedrooms()
+        #self.set_num_of_bathrooms()
+        #self.status           = 'Available'
         
     def set_id(self) -> None:
         '''
@@ -29,22 +29,23 @@ class Property:
         None
         '''
         Property.Propert_ID += 1
-        self.id = Property.Propert_ID        
-    
+        self.id = Property.Propert_ID
+        
     def set_address(self) -> None:
         '''
         assign the properties address
 
         Parameters:
         address (str) : The address of the property        
-        ''' 
-        self.address = dict(street_number = validators.validate_street_number(input("Enter street number: ")),
+        ''' #TODO
+        pass
+        """ self.address = dict(street_number = validators.validate_street_number(input("Enter street number: ")),
                             street_name   = validators.validate_street_name(input("Enter street name: ")),
                             county        = validators.validate_county(input("Enter county: ")),
                             state         = validators.validate_state(input("Enter state: ")),
                             zip_code      = validators.validate_zip_code(input("Enter zip code: "))
                             )
-
+ """
     def set_square_footage(self, square_footage):
         '''
         assign the properties square footage
@@ -82,12 +83,12 @@ class Property:
         ''' #TODO
         return 'Available'
 
-    def get_id(self):
+    def get_id(self) -> int:
         '''
         Returns: 
         int: assigned properites id
         ''' #TODO
-        return 0
+        return self.id
     
     def get_address(self) -> str:
         '''

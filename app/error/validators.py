@@ -1,5 +1,5 @@
 '''Validates the input values'''
-import error.exceptions
+import app.error.exceptions
 
 ## =================
 ## Data definitions
