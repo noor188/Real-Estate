@@ -21,6 +21,5 @@ class TestSetAddress(unittest.TestCase):
     def test_int(self):
         pass
         
-
 if __name__ == '__main__':
     unittest.main()
