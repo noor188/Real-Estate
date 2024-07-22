@@ -5,6 +5,7 @@ class TestSetId(unittest.TestCase):
     
     # testcase 1
     def test_id_one(self):
+        ''''''
         p1 = Property()
         self.assertEqual(p1.get_id(), 1)
 
