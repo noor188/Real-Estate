@@ -13,9 +13,9 @@ class Property:
     Propert_ID = 0
     
     def __init__(self):
-        self.id, self.address, self.square_footage, self.num_of_bedrooms, self.num_of_bathrooms = None, None, None, None, None
+        self.id, self.address, self.square_footage, self.num_of_bedrooms, self.num_of_bathrooms = None, {}, 0, 0, 0
         self.set_id( )
-        self.set_address()
+        #self.set_address()
         #self.set_square_footage()
         #self.set_num_of_bedrooms()
         #self.set_num_of_bathrooms()
@@ -37,20 +37,20 @@ class Property:
 
         Parameters:
         address (str) : The address of the property        
-        '''
-        number   = validators.validate_street_number(input("Enter street number: "))
-        name     = validators.validate_street_name(input("Enter street name: "))
-        county   = validators.validate_county(input("Enter county: "))
-        state    = validators.validate_state(input("Enter state: "))
-        zip_code = validators.validate_zip_code(input("Enter zip code: "))
+        '''        
+        street_number   = validators.validate_street_number(input("Enter street number: "))
+        street_name     = validators.validate_street_name(input("Enter street name: "))
+        county          = validators.validate_county(input("Enter county: "))
+        state           = validators.validate_state(input("Enter state: "))
+        zip_code        = validators.validate_zip_code(input("Enter zip code: "))
 
-        self.address = dict(street_number= number,
-                            street_name  = name,
+        self.address = dict(street_number= street_number,
+                            street_name  = street_name,
                             county       = county,
                             state        = state,
-                            zip_code     = zip_code)
+                            zip_code     = zip_code) 
 
-    def set_square_footage(self, square_footage):
+    def set_square_footage(self, square_footage: float) -> None:
         '''
         assign the properties square footage
 

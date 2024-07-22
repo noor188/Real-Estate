@@ -23,8 +23,10 @@ def validate_street_name(name: str) -> None:
 
     Parameters:
     name (str): the street name
-    ''' #TODO
-    return ''
+    '''
+    if not isinstance(name, str):
+        raise ValueError()
+    return name
 
 def validate_county(county: str) -> None:
     '''
@@ -32,8 +34,10 @@ def validate_county(county: str) -> None:
 
     Parameters:
     county (str): the street county
-    ''' #TODO
-    return ''
+    '''
+    if not isinstance(county, str):
+        raise ValueError()
+    return county
 
 def validate_state(state: str) -> None:
     '''
@@ -41,8 +45,10 @@ def validate_state(state: str) -> None:
 
     Parameters:
     state (int): the state
-    ''' #TODO
-    return ''
+    ''' 
+    if not isinstance(state, str):
+        raise ValueError()
+    return state
 
 def validate_zip_code(zip_code: int) -> None:
     '''
