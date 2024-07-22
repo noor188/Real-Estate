@@ -37,15 +37,19 @@ class Property:
 
         Parameters:
         address (str) : The address of the property        
-        ''' #TODO
-        pass
-        """ self.address = dict(street_number = validators.validate_street_number(input("Enter street number: ")),
-                            street_name   = validators.validate_street_name(input("Enter street name: ")),
-                            county        = validators.validate_county(input("Enter county: ")),
-                            state         = validators.validate_state(input("Enter state: ")),
-                            zip_code      = validators.validate_zip_code(input("Enter zip code: "))
-                            )
- """
+        '''
+        number   = validators.validate_street_number(input("Enter street number: "))
+        name     = validators.validate_street_name(input("Enter street name: "))
+        county   = validators.validate_county(input("Enter county: "))
+        state    = validators.validate_state(input("Enter state: "))
+        zip_code = validators.validate_zip_code(input("Enter zip code: "))
+
+        self.address = dict(street_number= number,
+                            street_name  = name,
+                            county       = county,
+                            state        = state,
+                            zip_code     = zip_code)
+
     def set_square_footage(self, square_footage):
         '''
         assign the properties square footage
@@ -90,12 +94,12 @@ class Property:
         ''' #TODO
         return self.id
     
-    def get_address(self) -> str:
+    def get_address(self) -> dict:
         '''
         Returns:
-        str: assigned properties address
+        dict:  dictionary of Property address values 
         '''
-        return ''
+        return self.address
 
     def get_square_footage(self) -> float:
         '''        

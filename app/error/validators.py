@@ -1,18 +1,20 @@
 '''Validates the input values'''
-import app.error.exceptions
+from app.error import exceptions
 
 ## =================
 ## Data definitions
 
-def validate_street_number(number: int) -> int:
+def validate_street_number(number) -> int:
     '''
     checks that the street number input is an int
 
     Parameters:
-    number (int): the street number
+    number : the street number
     '''
-    if not isinstance(number, int):
-        raise exceptions.InvalidStreetNumber(number)
+    if isinstance(number, float):
+        raise TypeError()
+    elif isinstance(number, bool) or isinstance(number, str) :
+        raise ValueError()
     return number
 
 def validate_street_name(name: str) -> None:
@@ -22,7 +24,7 @@ def validate_street_name(name: str) -> None:
     Parameters:
     name (str): the street name
     ''' #TODO
-    pass
+    return ''
 
 def validate_county(county: str) -> None:
     '''
@@ -31,7 +33,7 @@ def validate_county(county: str) -> None:
     Parameters:
     county (str): the street county
     ''' #TODO
-    pass
+    return ''
 
 def validate_state(state: str) -> None:
     '''
@@ -40,7 +42,7 @@ def validate_state(state: str) -> None:
     Parameters:
     state (int): the state
     ''' #TODO
-    pass
+    return ''
 
 def validate_zip_code(zip_code: int) -> None:
     '''
@@ -49,4 +51,4 @@ def validate_zip_code(zip_code: int) -> None:
     Parameters:
     zip code (int): the zip code
     ''' #TODO
-    pass
+    return 0
