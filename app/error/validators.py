@@ -50,11 +50,27 @@ def validate_state(state: str) -> None:
         raise ValueError()
     return state
 
-def validate_zip_code(zip_code: int) -> None:
+def validate_zip_code(zip_code: int) -> int:
     '''
     checks that the zip code input is an int
 
     Parameters:
     zip code (int): the zip code
-    ''' #TODO
-    return 0
+    ''' 
+    if isinstance(zip_code, float):
+        raise TypeError()
+    elif isinstance(zip_code, bool) or isinstance(zip_code, str) :
+        raise ValueError()
+    return zip_code
+
+def validate_square_footage(square_footage: float)-> float :
+    '''
+    Checks that square_footage input is a number
+
+    Parameters:
+    square_footage (float):  the square footage
+    '''
+    if not isinstance(square_footage, int) and not isinstance(square_footage, float):
+        raise ValueError()
+    return square_footage
+    
