@@ -70,7 +70,7 @@ def validate_square_footage(square_footage: float)-> float :
     Parameters:
     square_footage (float):  the square footage
     '''
-    if not isinstance(square_footage, int) and not isinstance(square_footage, float):
+    if isinstance(square_footage, str) or isinstance(square_footage, bool):
         raise ValueError()
     return square_footage
     
