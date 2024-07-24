@@ -50,15 +50,11 @@ class Property:
                             state        = state,
                             zip_code     = zip_code) 
 
-    def set_square_footage(self, square_footage: float) -> None:
+    def set_square_footage(self) -> None:
         '''
-        assign the properties square footage
-
-        Parameters:
-        square_footage (float) : the square footage of a property
+        assign the properties square footage        
         ''' #TODO
-        pass
-        #self.square_footage = input("Enter Square Footage")
+        self.square_footage = validators.validate_square_footage(input("Enter Square Footage"))
 
     def set_num_of_bedrooms(self, num_of_bedrooms):
         '''
@@ -105,8 +101,8 @@ class Property:
         '''        
         Returns:
         float: the assigned square footage value
-        ''' #TODO
-        return 0
+        '''
+        return self.square_footage
 
     def get_num_of_bedrooms(self) -> int:
         '''     
