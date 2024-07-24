@@ -10,8 +10,18 @@
         <div>Real Estate: 
             <a href="/index">Home </a>
             <a href="/login">Login</a>
-        </div>
-        {% block content %}
-        {% endblock %}
+        </div>                
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
     </body>    
 </html>
