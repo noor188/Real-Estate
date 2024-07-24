@@ -52,11 +52,11 @@ class Property:
 
     def set_square_footage(self) -> None:
         '''
-        assign the properties square footage        
-        ''' #TODO
+        assign the properties square footage       
+        '''
         self.square_footage = validators.validate_square_footage(input("Enter Square Footage"))
 
-    def set_num_of_bedrooms(self, num_of_bedrooms):
+    def set_num_of_bedrooms(self, num_of_bedrooms: int) -> None:
         '''
         assign the properties number of bedrooms
 
@@ -108,8 +108,8 @@ class Property:
         '''     
         Returns:
         int: assigned number of bedrooms
-        ''' #TODO
-        pass
+        '''
+        return self.get_num_of_bedrooms
         
 
     def get_num_of_bathrooms(self) -> int:

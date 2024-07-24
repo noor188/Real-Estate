@@ -192,7 +192,9 @@ class TestSetSquareFootage(unittest.TestCase):
         p3 = Property()
         with self.assertRaises(ValueError):
             p3.set_square_footage()
-    
+            
+class TestSetNumOfBedrooms(unittest.TestCase):
+    pass
         
 if __name__ == '__main__':
     #unittest.main()
