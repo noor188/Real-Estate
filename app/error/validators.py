@@ -70,7 +70,11 @@ def validate_square_footage(square_footage: float)-> float :
     Parameters:
     square_footage (float):  the square footage
     '''
+<<<<<<< HEAD
     if isinstance(square_footage, bool) or isinstance(square_footage, str):
+=======
+    if isinstance(square_footage, str) or isinstance(square_footage, bool):
+>>>>>>> 8fb44221c3f410640f593ccc4e3d311c309a360c
         raise ValueError()
     return square_footage
 
