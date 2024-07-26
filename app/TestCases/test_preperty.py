@@ -192,11 +192,82 @@ class TestSetSquareFootage(unittest.TestCase):
         p3 = Property()
         with self.assertRaises(ValueError):
             p3.set_square_footage()
+
+class TestSetNumberOfBedrooms(unittest.TestCase):
+
+    # testcase 1
+    @patch('builtins.input', side_effect=[3])
+    def test_zip_int(self, mock_input) -> None:
+        '''Test for int input value'''  
+        p1 = Property()        
+        p1.set_num_of_bedrooms()         
+        self.assertEqual(p1.get_num_of_bedrooms(), 3)
+
+    # testcase 2
+    @patch('builtins.input', side_effect=[3.5])
+    def test_float(self, mock_input) -> None:
+        '''Test for float input value''' 
+        p2 = Property()             
+        with self.assertRaises(TypeError):
+            p2.set_num_of_bedrooms()
+
+    # testcase 3
+    @patch('builtins.input', side_effect=[True])
+    def test_boolean(self, mock_input) -> None:
+        '''Test for boolean input value''' 
+        p3 = Property()
+        with self.assertRaises(ValueError):
+            p3.set_num_of_bedrooms()       
+
+    # testcase 4
+    @patch('builtins.input', side_effect=["3.5"])
+    def test_zip_string(self, mock_input) -> None:
+        '''Test for string input value'''                
+        p4 = Property()
+        with self.assertRaises(ValueError):
+            p4.set_num_of_bedrooms()  
+
+
+class TestSetNumberOfBathrooms(unittest.TestCase):
+
+    # testcase 1
+    @patch('builtins.input', side_effect=[3])
+    def test_zip_int(self, mock_input) -> None:
+        '''Test for int input value'''  
+        p1 = Property()        
+        p1.set_num_of_bathrooms()         
+        self.assertEqual(p1.get_num_of_bathrooms(), 3)
+
+    # testcase 2
+    @patch('builtins.input', side_effect=[3.5])
+    def test_float(self, mock_input) -> None:
+        '''Test for float input value''' 
+        p2 = Property()             
+        with self.assertRaises(TypeError):
+            p2.set_num_of_bathrooms()
+
+    # testcase 3
+    @patch('builtins.input', side_effect=[True])
+    def test_boolean(self, mock_input) -> None:
+        '''Test for boolean input value''' 
+        p3 = Property()
+        with self.assertRaises(ValueError):
+            p3.set_num_of_bathrooms()       
+
+    # testcase 4
+    @patch('builtins.input', side_effect=["3.5"])
+    def test_zip_string(self, mock_input) -> None:
+        '''Test for string input value'''                
+        p4 = Property()
+        with self.assertRaises(ValueError):
+            p4.set_num_of_bathrooms()  
     
         
 if __name__ == '__main__':
     #unittest.main()
     suite = unittest.TestSuite()
     #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetAddress))
-    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetSquareFootage))
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetSquareFootage))
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetNumberOfBedrooms))
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetNumberOfBathrooms))
     unittest.TextTestRunner().run(suite)

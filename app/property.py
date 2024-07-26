@@ -53,26 +53,26 @@ class Property:
     def set_square_footage(self) -> None:
         '''
         assign the properties square footage        
-        ''' #TODO
+        '''
         self.square_footage = validators.validate_square_footage(input("Enter Square Footage"))
 
-    def set_num_of_bedrooms(self, num_of_bedrooms):
+    def set_num_of_bedrooms(self) -> None:
         '''
         assign the properties number of bedrooms
 
         Parameters:
         num_of_bedrooms (int)
-        ''' #TODO
-        pass
+        ''' 
+        self.num_of_bedrooms = validators.validate_num_of_bedrooms(input("Enter number of bedrooms"))
 
-    def set_num_of_bathrooms(self, num_of_bathrooms):
+    def set_num_of_bathrooms(self) -> None:
         '''
         assign the properties number of bathrooms
 
         Parameters:
         num_of_bathrooms (int)
-        ''' #TODO
-        pass
+        ''' 
+        self.num_of_bathrooms = validators.validate_num_of_bathrooms(input("Enter number of bathrooms"))
 
     def set_status(self, status):
         '''
@@ -108,16 +108,15 @@ class Property:
         '''     
         Returns:
         int: assigned number of bedrooms
-        ''' #TODO
-        pass
-        
+        '''
+        return self.num_of_bedrooms        
 
     def get_num_of_bathrooms(self) -> int:
         '''
         Returns:
         int: assigned number of bathrooms
-        ''' #TODO
-        pass
+        '''
+        return self.num_of_bathrooms
 
     def get_status(self):
         '''
