@@ -70,7 +70,39 @@ def validate_square_footage(square_footage: float)-> float :
     Parameters:
     square_footage (float):  the square footage
     '''
+<<<<<<< HEAD
+    if isinstance(square_footage, bool) or isinstance(square_footage, str):
+=======
     if isinstance(square_footage, str) or isinstance(square_footage, bool):
+>>>>>>> 8fb44221c3f410640f593ccc4e3d311c309a360c
         raise ValueError()
     return square_footage
+
+def validate_num_of_bedrooms(num_of_bedrooms: int)-> int :
+    '''
+    Checks that num of bedrooms input is a int
+
+    Parameters:
+    num_of_bedrooms (int):  the number of bedrooms
+    '''
+    if isinstance(num_of_bedrooms, float):
+        raise TypeError()
+    if isinstance(num_of_bedrooms, bool) or isinstance(num_of_bedrooms, str):
+        raise ValueError()
+    return num_of_bedrooms
+
+def validate_num_of_bathrooms(num_of_bathrooms: int) -> int:
+    '''
+    Checks that num of bathrooms input is a int
+
+    Parameters:
+    num_of_bathrooms (int):  the number of bathrooms
+    '''
+    if isinstance(num_of_bathrooms, float):
+        raise TypeError()
+    if isinstance(num_of_bathrooms, bool) or isinstance(num_of_bathrooms, str):
+        raise ValueError()
+    return num_of_bathrooms
+
+
     
