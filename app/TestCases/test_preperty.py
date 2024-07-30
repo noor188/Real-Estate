@@ -192,7 +192,7 @@ class TestSetSquareFootage(unittest.TestCase):
         p3 = Property()
         with self.assertRaises(ValueError):
             p3.set_square_footage()
-<<<<<<< HEAD
+
 
 class TestSetNumberOfBedrooms(unittest.TestCase):
 
@@ -263,11 +263,26 @@ class TestSetNumberOfBathrooms(unittest.TestCase):
         with self.assertRaises(ValueError):
             p4.set_num_of_bathrooms()  
     
-=======
             
-class TestSetNumOfBedrooms(unittest.TestCase):
-    pass
->>>>>>> 8fb44221c3f410640f593ccc4e3d311c309a360c
+class TestSetStatus(unittest.TestCase):
+    status = ('available', 'rented', 'sold')
+
+    # testcase 1
+    @patch('builtins.input', side_effect=['default'])
+    def test_right_value(self, mock_input) -> None:
+        '''Test for right input value'''  
+        p1 = Property()        
+        p1.set_status()         
+        self.assertEqual(p1.get_status(), 'default')
+
+    # testcase 1
+    @patch('builtins.input', side_effect=['None'])
+    def test_wrong_input(self, mock_input) -> None:
+        '''Test for wrong input value'''                
+        p1 = Property()
+        with self.assertRaises(ValueError):
+            p1.set_status() 
+
         
 if __name__ == '__main__':
     #unittest.main()

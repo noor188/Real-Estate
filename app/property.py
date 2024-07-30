@@ -19,7 +19,7 @@ class Property:
         #self.set_square_footage()
         #self.set_num_of_bedrooms()
         #self.set_num_of_bathrooms()
-        #self.status           = 'Available'
+        self.status           = 'Available'
         
     def set_id(self) -> None:
         '''
@@ -53,7 +53,7 @@ class Property:
     def set_square_footage(self) -> None:
         '''
         assign the properties square footage        
-        ''' #TODO
+        ''' 
         self.square_footage = validators.validate_square_footage(input("Enter Square Footage"))
 
     def set_num_of_bedrooms(self, num_of_bedrooms):
@@ -74,20 +74,19 @@ class Property:
         ''' 
         self.num_of_bathrooms = validators.validate_num_of_bathrooms(input("Enter number of bathrooms"))
 
-    def set_status(self, status):
+    def set_status(self) -> None:
         '''
         assign the properties status
-
-        Parameters:
-        status (string) : one of: Available (default), Rented, sold        
-        ''' #TODO
+        
+        one of: Available (default), Rented, sold        
+        '''
         return 'Available'
 
     def get_id(self) -> int:
         '''
         Returns: 
         int: assigned properites id
-        ''' #TODO
+        ''' 
         return self.id
     
     def get_address(self) -> dict:
@@ -108,8 +107,8 @@ class Property:
         '''     
         Returns:
         int: assigned number of bedrooms
-        ''' #TODO
-        pass
+        ''' 
+        return self.num_of_bathrooms
         
 
     def get_num_of_bathrooms(self) -> int:
@@ -119,12 +118,12 @@ class Property:
         '''
         return self.num_of_bathrooms
 
-    def get_status(self):
+    def get_status(self) -> str:
         '''
         Returns:
         one of: Available (default), Rented, sold
-        ''' #TODO
-        pass
+        ''' 
+        return self.status
 
     ## =================
     ## Methods:
