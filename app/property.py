@@ -15,10 +15,10 @@ class Property:
     def __init__(self):
         self.id, self.address, self.square_footage, self.num_of_bedrooms, self.num_of_bathrooms = None, {}, 0, 0, 0
         self.set_id( )
-        #self.set_address()
-        #self.set_square_footage()
-        #self.set_num_of_bedrooms()
-        #self.set_num_of_bathrooms()
+        self.set_address()
+        self.set_square_footage()
+        self.set_num_of_bedrooms()
+        self.set_num_of_bathrooms()
         self.status           = 'Available'
         
     def set_id(self) -> None:
@@ -130,26 +130,40 @@ class Property:
     def mark_as_sold(self) -> None:
         '''
         marks a property as sold
+        status = 'sold'
 
         Returns: None
-        ''' #TODO
-        pass
+        ''' 
+        self.status = 'sold'
 
     def mark_as_rented(self) -> None:
         '''
         mark a property as rented
 
         Returns: None
-        ''' #TODO
-        pass
+        ''' 
+        self.status = 'rented'
+    
+    def mark_as_available(self) -> None:
+        '''
+        mark a property as available
+
+        Returns: None
+        '''
+        self.status = 'available'
 
     def display(self) -> None:
         '''
         Displays the properties attributes
 
         Returns: None
-        ''' #TODO
-        pass
+        ''' 
+        print("PROPERTY DETAILS")
+        print("=================")
+        print("square footage: {}".format(self.square_footage))
+        print("bedrooms: {}".format(self.num_of_bedrooms))
+        print("bathrooms: {}".format(self.num_of_bathrooms))
+        print()
 
     @staticmethod
     def prompt_init() -> dict:
@@ -161,6 +175,4 @@ class Property:
         Returns:
         dict: dictionary of Property __init__ arguments values 
         ''' #TODO
-        pass
-
-
+        return ''
