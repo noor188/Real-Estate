@@ -268,12 +268,12 @@ class TestSetStatus(unittest.TestCase):
     status = ('available', 'rented', 'sold')
 
     # testcase 1
-    @patch('builtins.input', side_effect=['default'])
+    @patch('builtins.input', side_effect=['available'])
     def test_right_value(self, mock_input) -> None:
         '''Test for right input value'''  
         p1 = Property()        
         p1.set_status()         
-        self.assertEqual(p1.get_status(), 'default')
+        self.assertEqual(p1.get_status(), 'available')
 
     # testcase 1
     @patch('builtins.input', side_effect=['None'])
@@ -290,5 +290,6 @@ if __name__ == '__main__':
     #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetAddress))
     #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetSquareFootage))
     #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetNumberOfBedrooms))
-    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetNumberOfBathrooms))
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetNumberOfBathrooms))
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetStatus))
     unittest.TextTestRunner().run(suite)
