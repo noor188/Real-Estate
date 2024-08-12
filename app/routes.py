@@ -25,7 +25,6 @@ def login():
                form.username.data, form.remember_me.data))
          return redirect(url_for('index'))
       return render_template('login.html', title='Sign In', form=form)
-<<<<<<< HEAD
 
 @app.route("/property", methods=['GET', 'POST'])
 def property():
@@ -34,5 +33,3 @@ def property():
        flash('Add property')
        return redirect('/index')
    return render_template('property.html', form = form)
-=======
->>>>>>> d3b8372551b1579872a96246d55b0f413d38fa11
