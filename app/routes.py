@@ -1,6 +1,6 @@
 from flask import render_template, redirect, flash, url_for
 from app import app
-from app.forms import LoginForm
+from app.forms import LoginForm, PropertyForm
 
 @app.route("/")
 @app.route("/index")
@@ -25,3 +25,11 @@ def login():
                form.username.data, form.remember_me.data))
          return redirect(url_for('index'))
       return render_template('login.html', title='Sign In', form=form)
+
+@app.route("/property", methods=['GET', 'POST'])
+def property():
+   form = PropertyForm()
+   if form.validate_on_submit():
+       flash('Add property')
+       return redirect('/index')
+   return render_template('property.html', form = form)

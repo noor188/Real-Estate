@@ -80,7 +80,7 @@ class Property:
         
         one of: Available (default), Rented, sold        
         '''
-        return 'Available'
+        return 'available'
 
     def get_id(self) -> int:
         '''
