@@ -12,3 +12,4 @@ class LoginForm(FlaskForm):
 class PropertyForm(FlaskForm):
     type = SelectField (label='Property Type', choices=[('house', 'House'), ('apartment', 'Apartment')], default='house')
     submit = SubmitField ('Next')
+
