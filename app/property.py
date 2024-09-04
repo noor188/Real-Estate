@@ -12,16 +12,24 @@ class Property:
     # store the next available id for all properties
     Propert_ID = 0
     
-    def __init__(self):
-        self.id, self.address, self.square_footage, self.num_of_bedrooms, self.num_of_bathrooms = None, {}, 0, 0, 0
-        self.set_id( )
-        #self.set_address()
-        #self.set_square_footage()
-        #self.set_num_of_bedrooms()
-        #self.set_num_of_bathrooms()
+    def __init__(self, address, square_footage, num_of_bedrooms, num_of_bathrooms):         
+        self.id               = self.get_id()
+        self.address          = address
+        self.square_footage   = square_footage
+        self.num_of_bedrooms  = num_of_bedrooms
+        self.num_of_bathrooms = num_of_bathrooms
         self.status           = 'Available'
-        
-    def set_id(self) -> None:
+
+    @property
+    def id(self) -> int:
+        '''
+        Returns: 
+        int: assigned properites id
+        ''' 
+        return self.id
+    
+    @id.setter   
+    def id(self) -> None:
         '''
         Automatically set the properties unique id.
 
@@ -30,8 +38,9 @@ class Property:
         '''
         Property.Propert_ID += 1
         self.id = Property.Propert_ID
-        
-    def set_address(self) -> None:
+
+    @address.setter  
+    def address(self) -> None:
         '''
         assign the properties address
 
@@ -50,13 +59,15 @@ class Property:
                             state        = state,
                             zip_code     = zip_code) 
 
-    def set_square_footage(self) -> None:
+    @square_footage.setter
+    def square_footage(self) -> None:
         '''
         assign the properties square footage        
         ''' 
         self.square_footage = validators.validate_square_footage(input("Enter Square Footage"))
 
-    def set_num_of_bedrooms(self, num_of_bedrooms):
+    @num_of_bedrooms.setter
+    def num_of_bedrooms(self, num_of_bedrooms):
         '''
         assign the properties number of bedrooms
 
@@ -65,7 +76,8 @@ class Property:
         ''' 
         self.num_of_bedrooms = validators.validate_num_of_bedrooms(input("Enter number of bedrooms"))
 
-    def set_num_of_bathrooms(self) -> None:
+    @num_of_bathrooms.setter
+    def num_of_bathrooms(self) -> None:
         '''
         assign the properties number of bathrooms
 
@@ -74,7 +86,8 @@ class Property:
         ''' 
         self.num_of_bathrooms = validators.validate_num_of_bathrooms(input("Enter number of bathrooms"))
 
-    def set_status(self) -> None:
+    @status.setter
+    def status(self) -> None:
         '''
         assign the properties status
         
@@ -82,43 +95,42 @@ class Property:
         '''
         return 'available'
 
-    def get_id(self) -> int:
-        '''
-        Returns: 
-        int: assigned properites id
-        ''' 
-        return self.id
     
-    def get_address(self) -> dict:
+    
+    @property
+    def address(self) -> dict:
         '''
         Returns:
         dict:  dictionary of Property address values 
         '''
         return self.address
 
-    def get_square_footage(self) -> float:
+    @property
+    def square_footage(self) -> float:
         '''        
         Returns:
         float: the assigned square footage value
         '''
         return self.square_footage
 
-    def get_num_of_bedrooms(self) -> int:
+    @property
+    def num_of_bedrooms(self) -> int:
         '''     
         Returns:
         int: assigned number of bedrooms
         ''' 
         return self.num_of_bathrooms
         
-
-    def get_num_of_bathrooms(self) -> int:
+    @property
+    def num_of_bathrooms(self) -> int:
         '''
         Returns:
         int: assigned number of bathrooms
         '''
         return self.num_of_bathrooms
 
-    def get_status(self) -> str:
+    @property
+    def status(self) -> str:
         '''
         Returns:
         one of: Available (default), Rented, sold
@@ -130,26 +142,40 @@ class Property:
     def mark_as_sold(self) -> None:
         '''
         marks a property as sold
+        status = 'sold'
 
         Returns: None
-        ''' #TODO
-        pass
+        ''' 
+        self.status = 'sold'
 
     def mark_as_rented(self) -> None:
         '''
         mark a property as rented
 
         Returns: None
-        ''' #TODO
-        pass
+        ''' 
+        self.status = 'rented'
+    
+    def mark_as_available(self) -> None:
+        '''
+        mark a property as available
+
+        Returns: None
+        '''
+        self.status = 'available'
 
     def display(self) -> None:
         '''
         Displays the properties attributes
 
         Returns: None
-        ''' #TODO
-        pass
+        ''' 
+        print("PROPERTY DETAILS")
+        print("=================")
+        print("square footage: {}".format(self.square_footage))
+        print("bedrooms: {}".format(self.num_of_bedrooms))
+        print("bathrooms: {}".format(self.num_of_bathrooms))
+        print()
 
     @staticmethod
     def prompt_init() -> dict:
@@ -161,6 +187,4 @@ class Property:
         Returns:
         dict: dictionary of Property __init__ arguments values 
         ''' #TODO
-        pass
-
-
+        return ''

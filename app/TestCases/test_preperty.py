@@ -275,13 +275,41 @@ class TestSetStatus(unittest.TestCase):
         p1.set_status()         
         self.assertEqual(p1.get_status(), 'available')
 
-    # testcase 1
+    # testcase 2
     @patch('builtins.input', side_effect=['None'])
     def test_wrong_input(self, mock_input) -> None:
         '''Test for wrong input value'''                
         p1 = Property()
         with self.assertRaises(ValueError):
             p1.set_status() 
+
+class TestMarkAsSold(unittest.TestCase):
+    
+    # testcase 1    
+    def test_right_value(self) -> None:
+        '''Test for right input value'''  
+        p1 = Property()        
+        p1.mark_as_sold()         
+        self.assertEqual(p1.status, 'sold')
+
+class TestMarkAsRented(unittest.TestCase):
+    
+    # testcase 1    
+    def test_right_value(self) -> None:
+        '''Test for right input value'''  
+        p1 = Property()        
+        p1.mark_as_rented()         
+        self.assertEqual(p1.status, 'rented')
+
+class TestMarkAsAvailable(unittest.TestCase):
+    
+    # testcase 1    
+    def test_right_value(self) -> None:
+        '''Test for right input value'''  
+        p1 = Property()        
+        p1.mark_as_available()         
+        self.assertEqual(p1.status, 'available')
+
 
         
 if __name__ == '__main__':
@@ -291,5 +319,11 @@ if __name__ == '__main__':
     #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetSquareFootage))
     #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetNumberOfBedrooms))
     #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetNumberOfBathrooms))
+<<<<<<< HEAD
+    #suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestMarkAsSold))
+    # suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestMarkAsRented))
+    suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestMarkAsAvailable))
+=======
     suite.addTest(unittest.TestLoader().loadTestsFromTestCase(TestSetStatus))
+>>>>>>> ea4a87d01f7383094f8ea0cb8ae8fe59dc0f7598
     unittest.TextTestRunner().run(suite)
