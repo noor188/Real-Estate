@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add Property</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag()}}
+    <p>
+        {{ form.type.label }}<br>
+        {{ form.type() }}
+    </p>
+    <p>
+        {{ form.submit()}}
+    </p>
+    
+</form>
+
+{% endblock %}
