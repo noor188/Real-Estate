@@ -39,6 +39,14 @@ class Property:
         Property.Propert_ID += 1
         self.id = Property.Propert_ID
 
+    @property
+    def address(self) -> dict:
+        '''
+        Returns:
+        dict:  dictionary of Property address values 
+        '''
+        return self.address
+
     @address.setter  
     def address(self) -> None:
         '''
@@ -58,13 +66,28 @@ class Property:
                             county       = county,
                             state        = state,
                             zip_code     = zip_code) 
-
+    @property
+    def square_footage(self) -> float:
+        '''        
+        Returns:
+        float: the assigned square footage value
+        '''
+        return self.square_footage
+    
     @square_footage.setter
     def square_footage(self) -> None:
         '''
         assign the properties square footage        
         ''' 
         self.square_footage = validators.validate_square_footage(input("Enter Square Footage"))
+
+    @property
+    def num_of_bedrooms(self) -> int:
+        '''     
+        Returns:
+        int: assigned number of bedrooms
+        ''' 
+        return self.num_of_bathrooms
 
     @num_of_bedrooms.setter
     def num_of_bedrooms(self, num_of_bedrooms):
@@ -76,6 +99,14 @@ class Property:
         ''' 
         self.num_of_bedrooms = validators.validate_num_of_bedrooms(input("Enter number of bedrooms"))
 
+    @property
+    def num_of_bathrooms(self) -> int:
+        '''
+        Returns:
+        int: assigned number of bathrooms
+        '''
+        return self.num_of_bathrooms
+    
     @num_of_bathrooms.setter
     def num_of_bathrooms(self) -> None:
         '''
@@ -86,49 +117,6 @@ class Property:
         ''' 
         self.num_of_bathrooms = validators.validate_num_of_bathrooms(input("Enter number of bathrooms"))
 
-    @status.setter
-    def status(self) -> None:
-        '''
-        assign the properties status
-        
-        one of: Available (default), Rented, sold        
-        '''
-        return 'available'
-
-    
-    
-    @property
-    def address(self) -> dict:
-        '''
-        Returns:
-        dict:  dictionary of Property address values 
-        '''
-        return self.address
-
-    @property
-    def square_footage(self) -> float:
-        '''        
-        Returns:
-        float: the assigned square footage value
-        '''
-        return self.square_footage
-
-    @property
-    def num_of_bedrooms(self) -> int:
-        '''     
-        Returns:
-        int: assigned number of bedrooms
-        ''' 
-        return self.num_of_bathrooms
-        
-    @property
-    def num_of_bathrooms(self) -> int:
-        '''
-        Returns:
-        int: assigned number of bathrooms
-        '''
-        return self.num_of_bathrooms
-
     @property
     def status(self) -> str:
         '''
@@ -136,6 +124,17 @@ class Property:
         one of: Available (default), Rented, sold
         ''' 
         return self.status
+    
+    @status.setter
+    def status(self) -> None:
+        '''
+        assign the properties status
+        
+        one of: Available (default), Rented, sold        
+        '''
+        return 'available'    
+
+    
 
     ## =================
     ## Methods:
