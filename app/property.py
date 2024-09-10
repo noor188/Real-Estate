@@ -13,23 +13,21 @@ class Property:
     Propert_ID = 0
     
     def __init__(self, address, square_footage, num_of_bedrooms, num_of_bathrooms):         
-        self.id               = self.get_id()
+        self.id               = self.set_id()
         self.address          = address
         self.square_footage   = square_footage
         self.num_of_bedrooms  = num_of_bedrooms
         self.num_of_bathrooms = num_of_bathrooms
         self.status           = 'Available'
 
-    @property
-    def id(self) -> int:
+    def get_id(self) -> int:
         '''
         Returns: 
         int: assigned properites id
         ''' 
         return self.id
-    
-    @id.setter   
-    def id(self) -> None:
+     
+    def set_id(self) -> int:
         '''
         Automatically set the properties unique id.
 
@@ -38,6 +36,15 @@ class Property:
         '''
         Property.Propert_ID += 1
         self.id = Property.Propert_ID
+        return self.id
+    
+    @property
+    def address(self) -> dict:
+        '''
+        Returns:
+        dict:  dictionary of Property address values 
+        '''
+        return self.address
 
     @address.setter  
     def address(self) -> None:
@@ -59,6 +66,14 @@ class Property:
                             state        = state,
                             zip_code     = zip_code) 
 
+    @property
+    def square_footage(self) -> float:
+        '''        
+        Returns:
+        float: the assigned square footage value
+        '''
+        return self.square_footage
+
     @square_footage.setter
     def square_footage(self) -> None:
         '''
@@ -66,6 +81,14 @@ class Property:
         ''' 
         self.square_footage = validators.validate_square_footage(input("Enter Square Footage"))
 
+    @property
+    def num_of_bedrooms(self) -> int:
+        '''     
+        Returns:
+        int: assigned number of bedrooms
+        ''' 
+        return self.num_of_bathrooms
+    
     @num_of_bedrooms.setter
     def num_of_bedrooms(self, num_of_bedrooms):
         '''
@@ -76,6 +99,14 @@ class Property:
         ''' 
         self.num_of_bedrooms = validators.validate_num_of_bedrooms(input("Enter number of bedrooms"))
 
+    @property
+    def num_of_bathrooms(self) -> int:
+        '''
+        Returns:
+        int: assigned number of bathrooms
+        '''
+        return self.num_of_bathrooms
+    
     @num_of_bathrooms.setter
     def num_of_bathrooms(self) -> None:
         '''
@@ -86,6 +117,14 @@ class Property:
         ''' 
         self.num_of_bathrooms = validators.validate_num_of_bathrooms(input("Enter number of bathrooms"))
 
+    @property
+    def status(self) -> str:
+        '''
+        Returns:
+        one of: Available (default), Rented, sold
+        ''' 
+        return self.status
+    
     @status.setter
     def status(self) -> None:
         '''
@@ -94,49 +133,7 @@ class Property:
         one of: Available (default), Rented, sold        
         '''
         return 'available'
-
     
-    
-    @property
-    def address(self) -> dict:
-        '''
-        Returns:
-        dict:  dictionary of Property address values 
-        '''
-        return self.address
-
-    @property
-    def square_footage(self) -> float:
-        '''        
-        Returns:
-        float: the assigned square footage value
-        '''
-        return self.square_footage
-
-    @property
-    def num_of_bedrooms(self) -> int:
-        '''     
-        Returns:
-        int: assigned number of bedrooms
-        ''' 
-        return self.num_of_bathrooms
-        
-    @property
-    def num_of_bathrooms(self) -> int:
-        '''
-        Returns:
-        int: assigned number of bathrooms
-        '''
-        return self.num_of_bathrooms
-
-    @property
-    def status(self) -> str:
-        '''
-        Returns:
-        one of: Available (default), Rented, sold
-        ''' 
-        return self.status
-
     ## =================
     ## Methods:
     def mark_as_sold(self) -> None:

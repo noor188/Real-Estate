@@ -12,19 +12,27 @@ from property import Property
 class Apartment(Property):  
         
     def __init__(self, balcony, rentable_storage_unit, fully_renovated_house):
-        self.balcony, self.rentable_storage_unit, self.fully_renovated_house = None, None, None
-        self.set_balcony(balcony)
-        self.set_rentable_storage_unit(rentable_storage_unit)
-        self.set_fully_renovated_house(fully_renovated_house)
-           
-    def set_balcony(self, balcony: bool)-> None:
+        self.balcony               = balcony
+        self.rentable_storage_unit = rentable_storage_unit
+        self.fully_renovated_house = fully_renovated_house
+
+    @property
+    def balcony(self) -> bool:
+        '''
+        Returns:
+        bool : balcony status
+        ''' #TODO
+        pass 
+
+    @balcony.setter
+    def balcony(self, balcony: bool)-> None:
         '''
         assign the Apartment balcony status
 
         Parameters:
         balcony (bool): one of: Yes, No
         ''' #TODO           
-        pass
+        pass    
     
     def set_rentable_storage_unit(self, rentable_storage_unit: bool) -> None:
         '''
@@ -44,12 +52,6 @@ class Apartment(Property):
         ''' #TODO          
         pass
 
-    def get_balcony(self) -> bool:
-        '''
-        Returns:
-        bool : balcony status
-        ''' #TODO
-        pass
     
     def get_rentable_storage_unit(self) -> bool:
         '''
