@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add House</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag()}}
+    <p>
+        {{ form.square_footage.label }}<br>
+        {{ form.square_footage() }}
+    </p>
+    <p>
+        {{ form.num_of_bedrooms.label }}<br>
+        {{ form.num_of_bedrooms() }}
+    </p>
+    <p>
+        {{ form.num_of_bathrooms.label }}<br>
+        {{ form.num_of_bathrooms() }}
+    </p>
+    <p>
+        {{ form.parking.label }}<br>
+        {{ form.parking() }}
+    </p>
+    <p>
+        {{ form.private_pool.label }}<br>
+        {{ form.private_pool() }}
+    </p>
+    <p>
+        {{ form.exterior_features.label }}<br>
+        {{ form.exterior_features() }}
+    </p>
+    <p>
+        {{ form.submit()}}
+    </p>
+    
+</form>
+{% endblock %}
