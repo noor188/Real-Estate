@@ -13,8 +13,8 @@ class Apartment(Property):
         
     def __init__(self, balcony, rentable_storage_unit, fully_renovated_house):
         self._balcony               = balcony
-        self.rentable_storage_unit = rentable_storage_unit
-        self.fully_renovated_house = fully_renovated_house
+        self._rentable_storage_unit = rentable_storage_unit
+        self._fully_renovated_house = fully_renovated_house
     
     @property
     def balcony(self) -> str:
@@ -41,17 +41,17 @@ class Apartment(Property):
         Returns:
         bool : rentable storage status
         ''' #TODO
-        pass
+        return self._rentable_storage_unit
 
     @rentable_storage_unit.setter
-    def rentable_storage_unit(self, rentable_storage_unit: bool) -> None:
+    def rentable_storage_unit(self, value: bool) -> None:
         '''
         assign the Apartment rentable storage unit status
 
         Parameters:
         rentable_storage_unit (bool): one of: Yes, No
         ''' #TODO  
-        pass
+        self._rentable_storage_unit = value
 
     @property
     def fully_renovated_house(self) -> bool:
@@ -59,17 +59,17 @@ class Apartment(Property):
         Returns:
         bool : renovated house status
         ''' #TODO
-        pass
+        return self._fully_renovated_house
 
     @fully_renovated_house.setter
-    def fully_renovated_house(self, fully_renovated_house: bool) -> None:
+    def fully_renovated_house(self, value: bool) -> None:
         '''
         assign the Apartment renovate status
 
         Parameters:
         fully_renovated_house (bool): one of: Yes, No
         ''' #TODO          
-        pass
+        self._fully_renovated_house = value
    
    
     ## =================
@@ -77,9 +77,16 @@ class Apartment(Property):
 
     def display(self) -> None:
         '''
-        Display the Apartment attributes        
-        ''' #TODO
-        pass
+        Displays the Apartment attributes
+
+        Returns: None
+        ''' 
+        print("APARTMENT DETAILS")
+        print("=================")
+        print("balcony: {}".format(self._balcony))
+        print("rentable storage unit: {}".format(self._rentable_storage_unit))
+        print("fully renovated house: {}".format(self._fully_renovated_house))
+        print()
 
     @staticmethod
     def prompt_init() -> dict:
@@ -91,6 +98,6 @@ class Apartment(Property):
         Returns:
         dict: dictionary of Apartment __init__ arguments values 
         ''' #TODO
-        pass
+        return 
 
 
