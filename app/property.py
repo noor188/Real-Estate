@@ -13,21 +13,23 @@ class Property:
     Propert_ID = 0
     
     def __init__(self, address, square_footage, num_of_bedrooms, num_of_bathrooms):         
-        self.id               = self.set_id()
+        self.id               = self.get_id()
         self.address          = address
         self.square_footage   = square_footage
         self.num_of_bedrooms  = num_of_bedrooms
         self.num_of_bathrooms = num_of_bathrooms
         self.status           = 'Available'
 
-    def get_id(self) -> int:
+    @property
+    def id(self) -> int:
         '''
         Returns: 
         int: assigned properites id
         ''' 
         return self.id
-     
-    def set_id(self) -> int:
+    
+    @id.setter   
+    def id(self) -> None:
         '''
         Automatically set the properties unique id.
 
@@ -36,8 +38,7 @@ class Property:
         '''
         Property.Propert_ID += 1
         self.id = Property.Propert_ID
-        return self.id
-    
+
     @property
     def address(self) -> dict:
         '''
@@ -65,7 +66,6 @@ class Property:
                             county       = county,
                             state        = state,
                             zip_code     = zip_code) 
-
     @property
     def square_footage(self) -> float:
         '''        
@@ -73,7 +73,7 @@ class Property:
         float: the assigned square footage value
         '''
         return self.square_footage
-
+    
     @square_footage.setter
     def square_footage(self) -> None:
         '''
@@ -88,7 +88,7 @@ class Property:
         int: assigned number of bedrooms
         ''' 
         return self.num_of_bathrooms
-    
+
     @num_of_bedrooms.setter
     def num_of_bedrooms(self, num_of_bedrooms):
         '''
@@ -132,8 +132,10 @@ class Property:
         
         one of: Available (default), Rented, sold        
         '''
-        return 'available'
+        return 'available'    
+
     
+
     ## =================
     ## Methods:
     def mark_as_sold(self) -> None:
