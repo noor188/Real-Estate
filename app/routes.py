@@ -30,6 +30,12 @@ def login():
 def property():
    form = PropertyForm()
    if form.validate_on_submit():
+       if form.type.data == 'house':
+           return redirect(url_for('house'))
        flash('Add property')
        return redirect('/index')
    return render_template('property.html', form = form)
+
+@app.route('/house', methods=["POST", "GET"])
+def house():
+    return render_template('house')
