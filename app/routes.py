@@ -1,6 +1,6 @@
 from flask import render_template, redirect, flash, url_for
 from app import app
-from app.forms import LoginForm, PropertyForm, HouseForm
+from app.forms import LoginForm, PropertyForm, HouseForm, ApartmentForm
 
 @app.route("/")
 @app.route("/index")
@@ -30,8 +30,13 @@ def login():
 def property():
    form = PropertyForm()
    if form.validate_on_submit():
-       flash('Add property')
-       return redirect('/index')
+      if form.type.data == 'house':
+           return redirect(url_for('house'))
+      if form.type.data == 'apartment':
+           return redirect(url_for('apartment'))
+
+      flash('Add property')
+      return redirect(url_for('index'))
    return render_template('property.html', form = form)
 
 @app.route("/house", methods=['GET', 'POST'])
@@ -39,5 +44,15 @@ def house():
    form = HouseForm()
    if form.validate_on_submit():
        flash('Add House')
-       return redirect('/index')
+       return redirect(url_for('index'))
    return render_template('house.html', form= form)
+
+@app.route("/apartment", methods=['GET', 'POST'])
+def apartment():
+   form = ApartmentForm()
+   if form.validate_on_submit():
+       flash('Add Apartment')
+       return redirect(url_for('index'))
+   return render_template('apartment.html', form=form)
+       
+   
