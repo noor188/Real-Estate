@@ -1,6 +1,6 @@
 from flask import render_template, redirect, flash, url_for
 from app import app
-from app.forms import LoginForm, PropertyForm, HouseForm, ApartmentForm
+from app.forms import LoginForm, PropertyForm, HouseForm, ApartmentForm, PropertyListing
 
 @app.route("/")
 @app.route("/index")
@@ -54,5 +54,13 @@ def apartment():
        flash('Add Apartment')
        return redirect(url_for('index'))
    return render_template('apartment.html', form=form)
+
+@app.route('/propertylisting', methods=['POST', 'GET'])
+def property_listing():
+   form = PropertyListing()
+   if form.validate_on_submit():
+        flash("updated status")
+   return render_template('property_listing.html', form= form)
+        
        
    
