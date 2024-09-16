@@ -31,7 +31,9 @@ class ApartmentForm(FlaskForm):
     fully_renovated_house = SelectField(label='Fully renovated house', choices=[('yes','Yes'),('no','No')], default='No')
     submit                = SubmitField('Add')
 
-
+class PropertyListing(FlaskForm):
+    status = SelectField(label= 'Status', choices=[('available','Available'), ('sold', 'Sold'), ('rented','Rented')], default="Available")
+    submit = SubmitField('Edit')
 
 
 
