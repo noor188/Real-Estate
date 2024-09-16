@@ -1,4 +1,4 @@
-from property import Property
+from app.property import Property
 ## Stores data for an Apartment that is a Property
 
 ## =================
@@ -12,68 +12,81 @@ from property import Property
 class Apartment(Property):  
         
     def __init__(self, balcony, rentable_storage_unit, fully_renovated_house):
-        self.balcony, self.rentable_storage_unit, self.fully_renovated_house = None, None, None
-        self.set_balcony(balcony)
-        self.set_rentable_storage_unit(rentable_storage_unit)
-        self.set_fully_renovated_house(fully_renovated_house)
-           
-    def set_balcony(self, balcony: bool)-> None:
+        self._balcony               = balcony
+        self._rentable_storage_unit = rentable_storage_unit
+        self._fully_renovated_house = fully_renovated_house
+    
+    @property
+    def balcony(self) -> str:
+        '''
+        Returns:
+        str : balcony status
+        One of: Yes, No
+        ''' #TODO
+        return self._balcony
+
+    @balcony.setter
+    def balcony(self, value: str)-> None:
         '''
         assign the Apartment balcony status
 
         Parameters:
-        balcony (bool): one of: Yes, No
+        balcony (str): one of: Yes, No
         ''' #TODO           
-        pass
+        self._balcony = value
     
-    def set_rentable_storage_unit(self, rentable_storage_unit: bool) -> None:
+    @property
+    def rentable_storage_unit(self) -> bool:
+        '''
+        Returns:
+        bool : rentable storage status
+        ''' #TODO
+        return self._rentable_storage_unit
+
+    @rentable_storage_unit.setter
+    def rentable_storage_unit(self, value: bool) -> None:
         '''
         assign the Apartment rentable storage unit status
 
         Parameters:
         rentable_storage_unit (bool): one of: Yes, No
         ''' #TODO  
-        pass
+        self._rentable_storage_unit = value
 
-    def set_fully_renovated_house(self, fully_renovated_house: bool) -> None:
+    @property
+    def fully_renovated_house(self) -> bool:
+        '''
+        Returns:
+        bool : renovated house status
+        ''' #TODO
+        return self._fully_renovated_house
+
+    @fully_renovated_house.setter
+    def fully_renovated_house(self, value: bool) -> None:
         '''
         assign the Apartment renovate status
 
         Parameters:
         fully_renovated_house (bool): one of: Yes, No
         ''' #TODO          
-        pass
-
-    def get_balcony(self) -> bool:
-        '''
-        Returns:
-        bool : balcony status
-        ''' #TODO
-        pass
-    
-    def get_rentable_storage_unit(self) -> bool:
-        '''
-        Returns:
-        bool : rentable storage status
-        ''' #TODO
-        pass
-
-    def get_fully_renovated_house(self) -> bool:
-        '''
-        Returns:
-        bool : renovated house status
-        ''' #TODO
-        pass
-
+        self._fully_renovated_house = value
+   
    
     ## =================
     ## Methods:   
 
     def display(self) -> None:
         '''
-        Display the Apartment attributes        
-        ''' #TODO
-        pass
+        Displays the Apartment attributes
+
+        Returns: None
+        ''' 
+        print("APARTMENT DETAILS")
+        print("=================")
+        print("balcony: {}".format(self._balcony))
+        print("rentable storage unit: {}".format(self._rentable_storage_unit))
+        print("fully renovated house: {}".format(self._fully_renovated_house))
+        print()
 
     @staticmethod
     def prompt_init() -> dict:
@@ -85,6 +98,6 @@ class Apartment(Property):
         Returns:
         dict: dictionary of Apartment __init__ arguments values 
         ''' #TODO
-        pass
+        return 
 
 
