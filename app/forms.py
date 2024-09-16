@@ -22,5 +22,18 @@ class HouseForm(FlaskForm):
     exterior_features = SelectField (label='Exterior features', choices=[('yes', 'Yes'), ('no', 'No')], default='No')
     submit = SubmitField ('Add')
 
+class ApartmentForm(FlaskForm):
+    square_footage        = FloatField('Square footage', validators=[DataRequired()])
+    num_of_bedrooms       = IntegerField('Number of bedrooms', validators=[DataRequired()])
+    num_of_bathrooms      = IntegerField('Number of bathrooms', validators=[DataRequired()])
+    balcony               = SelectField(label='balcony', choices=[('yes','Yes'), ('no',"No")], default='No')
+    rentable_storage_unit = SelectField(label='Rentable storage unit', choices=[('yes','Yes'),('no','No')], default='No')
+    fully_renovated_house = SelectField(label='Fully renovated house', choices=[('yes','Yes'),('no','No')], default='No')
+    submit                = SubmitField('Add')
+
+
+
+
+
 
 

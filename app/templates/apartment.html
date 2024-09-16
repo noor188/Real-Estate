@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block content %}
+<h1>Add Apartment</h1>
+<form action="" method="POST" novalidate>
+    {{form.hidden_tag()}}
+    <p>
+        {{ form.square_footage.label}}<br>
+        {{ form.square_footage(size=32)}}
+    </p>
+    <p>
+        {{ form.num_of_bedrooms.label}}<br>
+        {{ form.num_of_bedrooms(size=32)}}
+    </p>
+    <p>
+        {{ form.num_of_bathrooms.label}}<br>
+        {{ form.num_of_bathrooms(size=32)}}
+    </p>
+    <p>
+        {{ form.balcony.label}}<br>
+        {{ form.balcony()}}
+    </p>
+    <p>
+        {{ form.rentable_storage_unit.label}}<br>
+        {{ form.rentable_storage_unit()}}
+    </p>
+    <p>
+        {{ form.fully_renovated_house.label}}<br>
+        {{ form.fully_renovated_house()}}
+    </p>
+    <p>
+        {{ form.submit()}}      
+    </p>
+</form>
+
+{% endblock %}
